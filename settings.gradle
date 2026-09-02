@@ -1,0 +1,2 @@
+rootProject.name = "PhoneAI"
+include ':app'
