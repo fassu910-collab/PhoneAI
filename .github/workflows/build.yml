@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-jobs:
+jjobs:
   build:
     runs-on: ubuntu-latest
     steps:
@@ -20,15 +20,15 @@ jobs:
       - name: Grant execute permission for gradlew
         run: |
           if [ ! -f gradlew ]; then
-          gradle wrapper --gradle-version 8.4
+            gradle wrapper --gradle-version 8.4
           fi
           chmod +x gradlew
 
       - name: Build APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: PhoneAI-app
-          path: app/build/outputs/apk/release/*.apk
+          path: app/build/outputs/apk/debug/*.apk
